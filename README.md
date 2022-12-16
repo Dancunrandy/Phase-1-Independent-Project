@@ -3,10 +3,14 @@
 This app is a social networking platform that allows users to register and login, create and view posts, and add and view friends. It has a backend API that handles user authentication, storing user and post data, and handling friend requests.
 
 ## Features
-User registration and login: Users can create an account and log in to the app using their email and password. The app uses JSON Web Tokens (JWT) for authentication.
-Post creation: Users can create text and photo posts, which are stored in a database and displayed in a feed on the app.
-Friend management: Users can search for and send friend requests to other users, view their friends' profiles, and accept or reject incoming friend requests.
-Profile display: Users can view and edit their own profile, which includes their name, bio, and profile picture.
+###### User registration and login: 
+Users can create an account and log in to the app using their email and password. The app uses JSON Web Tokens (JWT) for authentication.
+###### Post creation:
+ Users can create text and photo posts, which are stored in a database and displayed in a feed on the app.
+###### Friend management:
+ Users can search for and send friend requests to other users, view their friends' profiles, and accept or reject incoming friend requests.
+###### Profile display: 
+Users can view and edit their own profile, which includes their name, bio, and profile picture.
 ### Technologies
 HTML and CSS for the frontend
 JavaScript for the frontend and backend

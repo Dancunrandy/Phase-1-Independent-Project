@@ -20,16 +20,16 @@ Unsplash API for retrieving photos for the posts
 #### Usage
 To use the app, you will need to have Node.js and MongoDB installed on your computer.
 
-Clone the repository and navigate to the project directory:
-git clone https://github.com/Dancunrandy/https://github.com/Dancunrandy/Phase-1-Independent-Project.git
-cd https://github.com/Dancunrandy/Phase-1-Independent-Project
-Install the dependencies:
-npm install
-Start the MongoDB server:
-mongod
-Start the app:
+1. Clone the repository and navigate to the project directory:
+  git clone https://github.com/Dancunrandy/https://github.com/Dancunrandy/Phase-1-Independent-Project.git
+  cd https://github.com/Dancunrandy/Phase-1-Independent-Project
+2. Install the dependencies:
+   npm install
+3. Start the MongoDB server:
+  mongod
+4. Start the app:
 npm start
-Open a web browser and go to http://localhost:3000 to access the app.
+ 5. Open a web browser and go to http://localhost:3000 to access the app.
 ### API Endpoints
 The app has the following API endpoints:
 

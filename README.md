@@ -33,17 +33,28 @@ npm start
 ### API Endpoints
 The app has the following API endpoints:
 
-POST /register: Creates a new user account.
-POST /login: Logs in an existing user.
-POST /logout: Logs out the current user.
-GET /profile: Gets the current user's profile.
-POST /profile: Updates the current user's profile.
-POST /photos: Uploads a photo to the Unsplash API.
-POST /posts: Creates a new post.
-GET /posts: Gets all the posts.
-GET /friends: Gets the current user's friends.
-POST /friends: Sends a friend request to another user.
-PUT /friends/:userId: Accepts or rejects a friend request from another user.
+1. POST /register: 
+   Creates a new user account.
+2. POST /login:
+   Logs in an existing user.
+3. POST /logout: 
+   Logs out the current user.
+4. GET /profile: 
+   Gets the current user's profile.
+5. POST /profile: 
+   Updates the current user's profile.
+6. POST /photos: 
+   Uploads a photo to the Unsplash API.
+7. POST /posts: 
+   Creates a new post.
+8. GET /posts: 
+   Gets all the posts.
+9. GET /friends: 
+   Gets the current user's friends.
+10. POST /friends: 
+    Sends a friend request to another user.
+11. PUT /friends/:userId: 
+    Accepts or rejects a friend request from another user.
 ### Deployment
 To deploy the app, you can use a service like Heroku.
 

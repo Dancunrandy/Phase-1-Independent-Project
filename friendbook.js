@@ -125,3 +125,7 @@ async function updateProfile() {
         alert("Failed to add friend!");
       }
     });
+    async function updateFeed() {
+        // Send a GET request to the /feed API
+        const response = await fetch("/feed");
+        const posts = await response.json();

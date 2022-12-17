@@ -182,4 +182,13 @@ async function updateProfile() {
       const photoData = await response.json();
       photoUrl = photoData.urls.full;
     }
+        // Send a POST request to the /create_post API
+        const response = await fetch("/create_post", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ text, photo_url: photoUrl })
+          });
+      
       

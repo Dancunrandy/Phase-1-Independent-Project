@@ -163,4 +163,7 @@ async function updateProfile() {
       // Prevent the form from being submitted
       event.preventDefault();
   
+      // Get the text and photo from the form
+      const text = createPostForm.elements["text"].value;
+      const photo = createPostForm.elements["photo"].files[0];
       

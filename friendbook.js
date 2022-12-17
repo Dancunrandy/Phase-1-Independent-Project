@@ -65,3 +65,12 @@ loginForm.addEventListener("submit", async event => {
     },
     body: JSON.stringify({ email, password })
   });
+  if (response.ok) {
+    // If the response is successful, show a success message and refresh the page
+    alert("Login successful!");
+    window.location.reload();
+  } else {
+    // If the response is not successful, show an error message
+    alert("Invalid email or password!");
+  }
+});

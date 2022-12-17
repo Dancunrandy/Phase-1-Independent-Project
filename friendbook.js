@@ -52,3 +52,4 @@ registerForm.addEventListener("submit", async event => {
 const loginForm = document.getElementById("login-form");
 loginForm.addEventListener("submit", async event => {
   // Prevent the form from being submitted
+  event.preventDefault();

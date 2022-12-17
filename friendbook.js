@@ -157,4 +157,10 @@ async function updateProfile() {
           }
           
           updateFeed();
+          // Create post form
+    const createPostForm = document.getElementById("create-post-form");
+    createPostForm.addEventListener("submit", async event => {
+      // Prevent the form from being submitted
+      event.preventDefault();
+  
       

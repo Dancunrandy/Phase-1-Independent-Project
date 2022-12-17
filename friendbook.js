@@ -190,5 +190,17 @@ async function updateProfile() {
             },
             body: JSON.stringify({ text, photo_url: photoUrl })
           });
+
+    if (response.ok) {
+        // If the response is successful, show a success message and refresh the page
+        alert("Post created successfully!");
+        window.location.reload();
+      } else {
+        // If the response is not successful, show an error message
+        alert("Failed to create post!");
+      }
+    });
+  
+          
       
       

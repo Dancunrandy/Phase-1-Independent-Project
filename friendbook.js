@@ -97,3 +97,11 @@ async function updateProfile() {
             friendsList.appendChild(li);
           }
         }
+        updateFriends();
+  
+
+        // Add friend form
+        const addFriendForm = document.getElementById("add-friend-form");
+        addFriendForm.addEventListener("submit", async event => {
+          // Prevent the form from being submitted
+          event.preventDefault();

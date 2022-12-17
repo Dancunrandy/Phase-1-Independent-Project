@@ -90,3 +90,10 @@ async function updateProfile() {
     // Send a GET request to the /friends API
     const response = await fetch("/friends");
     const friends = await response.json();
+        // Update the friends section with the user's friends' profiles
+        for (const friend of friends) {
+            const li = document.createElement("li");
+            li.textContent = friend.name;
+            friendsList.appendChild(li);
+          }
+        }

@@ -86,3 +86,7 @@ async function updateProfile() {
   }
   
   updateProfile();
+  async function updateFriends() {
+    // Send a GET request to the /friends API
+    const response = await fetch("/friends");
+    const friends = await response.json();

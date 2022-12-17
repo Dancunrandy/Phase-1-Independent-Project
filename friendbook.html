@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="bundle.js"></script>
     <script defer src="friendbook.js"></script>
     <title>friendbook app</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,14 +14,14 @@
     <label>Password: <input type="password" name="password"></label>
     <button type="submit">Register</button>
   </form>
-  <script src="bundle.js"></script>
-    <!-- Login form -->
-    <form id="login-form">
-        <label>Email: <input type="email" name="email"></label>
-        <label>Password: <input type="password" name="password"></label>
-        <button type="submit">Login</button>
-      </form>
-       <!-- Profile section -->
+ 
+  <!-- Login form -->
+  <form id="login-form">
+    <label>Email: <input type="email" name="email"></label>
+    <label>Password: <input type="password" name="password"></label>
+    <button type="submit">Login</button>
+  </form>
+  <!-- Profile section -->
   <section id="profile">
     <h1>Profile</h1>
     <p>Name: <span id="profile-name"></span></p>
@@ -35,6 +36,7 @@
       <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
+  
   <!-- Friends section -->
   <section id="friends">
     <h1>Friends</h1>
@@ -46,6 +48,7 @@
       <button type="submit">Add Friend</button>
     </form>
   </section>
+  
   <!-- Feed section -->
   <section id="feed">
     <h1>Feed</h1>

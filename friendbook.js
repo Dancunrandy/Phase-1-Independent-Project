@@ -116,3 +116,12 @@ async function updateProfile() {
       },
       body: JSON.stringify({ friend_email: friendEmail })
     });
+    if (response.ok) {
+        // If the response is successful, show a success message and refresh the page
+        alert("Friend added successfully!");
+        window.location.reload();
+      } else {
+        // If the response is not successful, show an error message
+        alert("Failed to add friend!");
+      }
+    });

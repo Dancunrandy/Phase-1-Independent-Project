@@ -74,3 +74,15 @@ loginForm.addEventListener("submit", async event => {
     alert("Invalid email or password!");
   }
 });
+async function updateProfile() {
+    // Send a GET request to the /profile API
+    const response = await fetch("/profile");
+    const profile = await response.json();
+  
+    // Update the profile section with the user's profile information
+    profileName.textContent = profile.name;
+    profileBio.textContent = profile.bio;
+    profilePicture.src = profile.profile_picture;
+  }
+  
+  updateProfile();

@@ -53,3 +53,15 @@ const loginForm = document.getElementById("login-form");
 loginForm.addEventListener("submit", async event => {
   // Prevent the form from being submitted
   event.preventDefault();
+  // Get the user's email and password from the form
+  const email = loginForm.elements["email"].value;
+  const password = loginForm.elements["password"].value;
+
+  // Send a POST request to the /login API
+  const response = await fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+  });

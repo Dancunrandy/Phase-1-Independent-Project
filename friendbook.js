@@ -166,4 +166,20 @@ async function updateProfile() {
       // Get the text and photo from the form
       const text = createPostForm.elements["text"].value;
       const photo = createPostForm.elements["photo"].files[0];
+
+    // If a photo was selected, upload it to Unsplash and get its URL
+    let photoUrl = null;
+    if (photo) {
+      const data = new FormData();
+      data.append("photo", photo);
+      const response = await fetch("https://api.unsplash.com/photos", {
+        method: "POST",
+        headers: {
+          Authorization: `Client-ID ${Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo}`
+        },
+        body: data
+      });
+      const photoData = await response.json();
+      photoUrl = photoData.urls.full;
+    }
       

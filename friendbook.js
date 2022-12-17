@@ -48,3 +48,7 @@ registerForm.addEventListener("submit", async event => {
     alert("Registration failed!");
   }
 });
+// Login form
+const loginForm = document.getElementById("login-form");
+loginForm.addEventListener("submit", async event => {
+  // Prevent the form from being submitted

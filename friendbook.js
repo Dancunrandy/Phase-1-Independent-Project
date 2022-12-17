@@ -105,3 +105,14 @@ async function updateProfile() {
         addFriendForm.addEventListener("submit", async event => {
           // Prevent the form from being submitted
           event.preventDefault();
+          // Get the email of the friend to add from the form
+    const friendEmail = addFriendForm.elements["friend-email"].value;
+
+    // Send a POST request to the /add_friend API
+    const response = await fetch("/add_friend", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ friend_email: friendEmail })
+    });

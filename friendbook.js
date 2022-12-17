@@ -129,3 +129,13 @@ async function updateProfile() {
         // Send a GET request to the /feed API
         const response = await fetch("/feed");
         const posts = await response.json();
+        // Update the feed section with the user's posts and their friends' posts
+    for (const post of posts) {
+        const li = document.createElement("li");
+    
+        if (post.photo_url) {
+          // If the post has a photo, create an img element and set its src
+          const img = document.createElement("img");
+          img.src = post.photo_url;
+          li.appendChild(img);
+        }

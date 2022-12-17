@@ -139,3 +139,9 @@ async function updateProfile() {
           img.src = post.photo_url;
           li.appendChild(img);
         }
+        if (post.text) {
+            // If the post has text, create a p element and set its text
+            const p = document.createElement("p");
+            p.textContent = post.text;
+            li.appendChild(p);
+            }

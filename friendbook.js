@@ -145,3 +145,16 @@ async function updateProfile() {
             p.textContent = post.text;
             li.appendChild(p);
             }
+            if (post.user) {
+                // If the post has a user, create a span element and set its text
+                const span = document.createElement("span");
+                span.textContent = post.user;
+                li.appendChild(span);
+              }
+              
+              feedList.appendChild(li);
+            }
+          }
+          
+          updateFeed();
+      

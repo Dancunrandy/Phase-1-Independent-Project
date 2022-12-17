@@ -6,60 +6,60 @@
     <title>friendbook app</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
+  <body style="background-image: url('https://source.unsplash.com/random');">
     <h1>User Registration</h1>
     <!-- Register form -->
-<form id="register-form">
-    <label>Email: <input type="email" name="email"></label>
-    <label>Password: <input type="password" name="password"></label>
-    <button type="submit">Register</button>
-  </form>
- 
-  <!-- Login form -->
-  <form id="login-form">
-    <label>Email: <input type="email" name="email"></label>
-    <label>Password: <input type="password" name="password"></label>
-    <button type="submit">Login</button>
-  </form>
-  <!-- Profile section -->
-  <section id="profile">
-    <h1>Profile</h1>
-    <p>Name: <span id="profile-name"></span></p>
-    <p>Bio: <span id="profile-bio"></span></p>
-    <img id="profile-picture">
-  </section>
-  <!--navigation bar -->
-  <nav>
-    <ul>
-      <li><a href="/home">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
-  
-  <!-- Friends section -->
-  <section id="friends">
-    <h1>Friends</h1>
-    <ul id="friends-list">
-      <!-- List of friends goes here -->
-    </ul>
-    <form id="add-friend-form">
-      <label>Email: <input type="email" name="friend-email"></label>
-      <button type="submit">Add Friend</button>
+    <form id="register-form">
+      <label>Email: <input type="email" name="email"></label>
+      <label>Password: <input type="password" name="password"></label>
+      <button type="submit">Register</button>
     </form>
-  </section>
-  
-  <!-- Feed section -->
-  <section id="feed">
-    <h1>Feed</h1>
-    <ul id="feed-list">
-      <!-- List of posts goes here -->
-    </ul>
-    <form id="create-post-form">
-      <label>Text: <input type="text" name="text"></label>
-      <label>Photo: <input type="file" name="photo"></label>
-      <button type="submit">Create Post</button>
+
+    <!-- Login form -->
+    <form id="login-form">
+      <label>Email: <input type="email" name="email"></label>
+      <label>Password: <input type="password" name="password"></label>
+      <button type="submit">Login</button>
     </form>
-  </section>
+    <!-- Profile section -->
+    <section id="profile">
+      <h1>Profile</h1>
+      <p>Name: <span id="profile-name"></span></p>
+      <p>Bio: <span id="profile-bio"></span></p>
+      <img id="profile-picture">
+    </section>
+    <!--navigation bar -->
+    <nav>
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Friends section -->
+    <section id="friends">
+      <h1>Friends</h1>
+      <ul id="friends-list">
+        <!-- List of friends goes here -->
+      </ul>
+      <form id="add-friend-form">
+        <label>Email: <input type="email" name="friend-email"></label>
+        <button type="submit">Add Friend</button>
+      </form>
+    </section>
+
+    <!-- Feed section -->
+    <section id="feed">
+      <h1>Feed</h1>
+      <ul id="feed-list">
+        <!-- List of posts goes here -->
+      </ul>
+      <form id="create-post-form">
+        <label>Text: <input type="text" name="text"></label>
+        <label>Photo: <input type="file" name="photo"></label>
+        <button type="submit">Create Post</button>
+      </form>
+    </section>
   </body>
 </html>

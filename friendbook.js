@@ -21,3 +21,30 @@ fetch("https://api.unsplash.com/photos", {
   // Handle any errors that occurred during the request
   console.error(error);
 });
+// Register form
+const registerForm = document.getElementById("register-form");
+registerForm.addEventListener("submit", async event => {
+  // Prevent the form from being submitted
+  event.preventDefault();
+
+  // Get the user's email and password from the form
+  const email = registerForm.elements["email"].value;
+  const password = registerForm.elements["password"].value;
+
+  // Send a POST request to the /register API
+  const response = await fetch("/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+  });
+
+  if (response.ok) {
+    // If the response is successful, show a success message
+    alert("Registration successful!");
+  } else {
+    // If the response is not successful, show an error message
+    alert("Registration failed!");
+  }
+});

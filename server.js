@@ -1,18 +1,17 @@
 const express = require("express");
 const app = express();
 
-app.use(express.static(__dirname + '/public', {
-  setHeaders: function (res, path) {
-    if (path.indexOf('.js') !== -1) {
-      res.setHeader('Content-Type', 'application/javascript');
-    }
-  }
-}));
+// Define a route handler for the /feed endpoint
+app.get("/feed", (req, res) => {
+  // Get the feed data from the database
+  const feedData = getFeedDataFromDb();
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  // Send the feed data as a JSON response
+  res.json(feedData);
 });
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
+// Start the server
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });

@@ -1,63 +1,69 @@
 const createPostForm = document.getElementById("create-post-form");
 
-const photo = createPostForm.elements["photo"].files[0];
+if (createPostForm && createPostForm.elements) {
+  const photo = createPostForm.elements["photo"].files[0];
 
-if (photo) {
-  // Create a FormData object to hold the photo data
-  const data = new FormData();
-  data.append("photo", photo);
-  // Make a POST request to the /photos endpoint of the Unsplash API
-  fetch("https://api.unsplash.com/photos", {
-    method: "POST",
-    headers: {
-      Authorization: `Client-ID ${Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo}` // Replace with your own API key
-    },
-    body: data
-  })
+  if (photo) {
+    // Create a FormData object to hold the photo data
+    const data = new FormData();
+    data.append("photo", photo);
+    // Make a POST request to the /photos endpoint of the Unsplash API
+    fetch("https://api.unsplash.com/photos", {
+      method: "POST",
+      headers: {
+        Authorization: Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo // Replace with your own API key
+      },
+      body: data
+    })
 
-  .then(response => {
-    // Parse the response as JSON
-    return response.json();
-  })
-  .then(photoData => {
-    // Get the URL of the full-sized photo from the response
-    const photoUrl = photoData.urls.full;
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the request
-    console.error(error);
-  });
-
-// Register form
-const registerForm = document.getElementById("register-form");
-registerForm.addEventListener("submit", async event => {
-  // Prevent the form from being submitted
-  event.preventDefault();
-
-  // Get the user's email and password from the form
-  const email = registerForm.elements["email"].value;
-  const password = registerForm.elements["password"].value;
-
-  // Send a POST request to the /register API
-  const response = await fetch("/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ email, password })
-  });
-
-  if (response.ok) {
-    // If the response is successful, show a success message
-    alert("Registration successful!");
-  } else {
-    // If the response is not successful, show an error message
-    alert("Registration failed!");
+    .then(response => {
+      // Parse the response as JSON
+      return response.json();
+    })
+    .then(photoData => {
+      // Get the URL of the full-sized photo from the response
+      const photoUrl = photoData.urls.full;
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the request
+      console.error(error);
+    });
   }
-});
+}
 
-  // Login form
-  const loginForm = document.getElementById("login-form");
+const registerForm = document.getElementById("register-form");
+
+if (registerForm) {
+  registerForm.addEventListener("submit", async event => {
+    // Prevent the form from being submitted
+    event.preventDefault();
+
+    // Get the user's email and password from the form
+    const email = registerForm.elements["email"].value;
+    const password = registerForm.elements["password"].value;
+
+    // Send a POST request to the /register API
+    const response = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password })
+    });
+
+    if (response.ok) {
+      // If the response is successful, show a success message
+      alert("Registration successful!");
+    } else {
+      // If the response is not successful, show an error message
+      alert("Registration failed!");
+    }
+  });
+}
+// Login form
+const loginForm = document.getElementById("login-form");
+
+if (loginForm) {
   loginForm.addEventListener("submit", async event => {
     // Prevent the form from being submitted
     event.preventDefault();
@@ -84,6 +90,8 @@ registerForm.addEventListener("submit", async event => {
       alert("Invalid email or password!");
     }
   });
+}
+
 
   async function updateProfile() {
     // Send a GET request to the /profile API
@@ -112,10 +120,10 @@ registerForm.addEventListener("submit", async event => {
   }
   
   updateFriends();
-  
-
   // Add friend form
-  const addFriendForm = document.getElementById("add-friend-form");
+const addFriendForm = document.getElementById("add-friend-form");
+
+if (addFriendForm) {
   addFriendForm.addEventListener("submit", async event => {
     // Prevent the form from being submitted
     event.preventDefault();
@@ -141,6 +149,8 @@ registerForm.addEventListener("submit", async event => {
       alert("Failed to add friend!");
     }
   });
+}
+
   async function updateFeed() {
     // Send a GET request to the /feed API
     const response = await fetch("/feed");
@@ -174,51 +184,55 @@ registerForm.addEventListener("submit", async event => {
     }
     
     updateFeed();
+// Create post form
+if (createPostForm) {
+  createPostForm.addEventListener("submit", async event => {
+    // Prevent the form from being submitted
+    event.preventDefault();
 
-     
-  
-    // Create post form
-    const createPostForm = document.getElementById("create-post-form");
-    createPostForm.addEventListener("submit", async event => {
-      // Prevent the form from being submitted
-      event.preventDefault();
-  
-      // Get the text and photo from the form
-      const text = createPostForm.elements["text"].value;
-      const photo = createPostForm.elements["photo"].files[0];
-  
-    // If a photo was selected, upload it to Unsplash and get its URL
-    let photoUrl = null;
-    if (photo) {
-      const data = new FormData();
-      data.append("photo", photo);
-      const response = await fetch("https://api.unsplash.com/photos", {
-        method: "POST",
-        headers: {
-          Authorization: `Client-ID ${Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo}`
-        },
-        body: data
-      });
-      const photoData = await response.json();
-      photoUrl = photoData.urls.full;
-    }
+    // Get the text and photo from the form
+    const text = createPostForm.elements["text"].value;
+    const photo = createPostForm.elements["photo"].files[0];
 
-    // Send a POST request to the /create_post API
-    const response = await fetch("/create_post", {
+  // If a photo was selected, upload it to Unsplash and get its URL
+  let photoUrl = null;
+  if (photo) {
+    const data = new FormData();
+    data.append("photo", photo);
+    const response = await fetch("https://api.unsplash.com/photos", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        Authorization: Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo
       },
-      body: JSON.stringify({ text, photo_url: photoUrl })
+      body: data
     });
+    const photoData = await response.json();
+    photoUrl = photoData.urls.full;
+  }
 
-    if (response.ok) {
-      // If the response is successful, show a success message and refresh the page
-      alert("Post created successfully!");
-      window.location.reload();
-    } else {
-      // If the response is not successful, show an error message
-      alert("Failed to create post!");
-    }
+  // Send a POST request to the /create_post API
+  const response = await fetch("/create_post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ text, photo_url: photoUrl })
   });
+
+  if (response.ok) {
+    // If the response is successful, show a success message and refresh the page
+    alert("Post created successfully!");
+    window.location.reload();
+  } else {
+    // If the response is not successful, show an error message
+    alert("Failed to create post!");
+  }
+});
 }
+app.get("/feed", (req, res) => {
+  // Get the feed data from the database
+  const feedData = getFeedDataFromDb();
+
+  // Send the feed data as a JSON response
+  res.json(feedData);
+});

@@ -229,10 +229,33 @@ if (createPostForm) {
   }
 });
 }
-app.get("/feed", (req, res) => {
-  // Get the feed data from the database
-  const feedData = getFeedDataFromDb();
+app.get('/feed', (req, res) => {
+  // Connect to the MongoDB database
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  client.connect((err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    }
 
-  // Send the feed data as a JSON response
-  res.json(feedData);
+    // Connected successfully
+    console.log('Connected to MongoDB');
+
+    // Retrieve the feed data from the database
+    const collection = client.db('my_database').collection('feed');
+    collection.find({}).toArray((err, docs) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send();
+        return;
+      }
+
+      // Send the results as a JSON response
+      res.json(docs);
+    });
+
+    // Disconnect from the database
+    client.close();
+  });
 });

@@ -229,6 +229,10 @@ if (createPostForm) {
   }
 });
 }
+const express = require('express');
+
+const app = express();
+
 app.get('/feed', (req, res) => {
   // Connect to the MongoDB database
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -254,8 +258,102 @@ app.get('/feed', (req, res) => {
       // Send the results as a JSON response
       res.json(docs);
     });
-
-    // Disconnect from the database
-    client.close();
   });
 });
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
+
+// Login function
+async function login(email, password) {
+  // Send a POST request to the /login API with the email and password
+  const response = await fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  });
+  if (response.ok) {
+    // If the response is successful, return true
+    return true;
+  } else {
+    // If the response is not successful, return false
+    return false;
+  }
+}
+
+// Fetch the data
+fetch('/data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Do something with the data
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+// Login function
+function login(email, password) {
+  // Check if the email and password match a user in the data object
+  const user = data.users.find(
+    user => user.email === email && user.password === password
+  );
+  if (user) {
+    // Login successful
+    return true;
+  } else {
+    // Login failed
+    return false;
+  }
+}
+// Register function (continued)
+function register(email, password, name, bio, picture) {
+  // Check if the email is already in use
+  const existingUser = data.users.find(user => user.email === email);
+  if (existingUser) {
+    // Email is already in use
+    return false;
+  } else {
+    // Add the new user to the data object
+    data.users.push({
+      email: email,
+      password: password,
+      name: name,
+      bio: bio,
+      picture: picture,
+      friends: [],
+      posts: []
+    });
+    // Registration successful
+    return true;
+  }
+}
+
+// Post function
+function post(email, text, photo) {
+  // Find the user with the specified email
+  const user = data.users.find(user => user.email === email);
+  if (user) {
+    // Add the post to the user's posts
+    user.posts.push({
+      text: text,
+      photo: photo
+    });
+    // Post successful
+    return true;
+  } else {
+    // User not found
+    return false;
+  }
+}
+fetch("https://api.unsplash.com/photos?client_id=Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo")
+  .then(response => response.json())
+  .then(data => {
+    // do something with the data here
+  })
+  .catch(error => {
+    // handle the error here
+  });
+

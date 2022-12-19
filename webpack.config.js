@@ -4,5 +4,3 @@ module.exports = {
       filename: "bundle.js"
     }
   };
-  const response = await fetch("/feed");
-const feedData = await response.json();

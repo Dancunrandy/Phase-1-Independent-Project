@@ -348,10 +348,17 @@ function post(email, text, photo) {
     return false;
   }
 }
-fetch("https://api.unsplash.com/photos?client_id=Dxw4vAcOz1PP26qKDWCW08HW7pXZWC01wCNxzUfBpFo")
+fetch('https://api.unsplash.com/photos/random?count=5 ')
   .then(response => response.json())
   .then(data => {
-    // do something with the data here
+    // process the data and create a summary
+    const summary = {
+      totalPhotos: data.length,
+      totalLikes: data.reduce((total, photo) => total + photo.likes, 0),
+      totalComments: data.reduce((total, photo) => total + photo.comments, 0)
+    };
+
+    console.log(summary);
   })
   .catch(error => {
     // handle the error here
